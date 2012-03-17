@@ -1,6 +1,6 @@
-
-Turns any video into a screenshot palette 
-<img src="VIDEO_2_NFO.png" />
+#### Turns any video into a screenshot palette 
+<br >
+<img src="https://github.com/runexec/Video2NFO/raw/master/VIDEO_2_NFO.png" />
 
 ###### Required Dependencies
     
