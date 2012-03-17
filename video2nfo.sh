@@ -83,9 +83,6 @@ MINUTES=`echo $DURATION | cut -d ':' -f2`
 HOUR_IN_MINUTES=$(($HOUR*60))
 
 TOTAL_TIME_IN_MINUTES=`echo "$HOUR_IN_MINUTES+$MINUTES" | bc`
-
-# Total Time in Seconds
-
 TOTAL_TIME_IN_SECONDS=`echo "$TOTAL_TIME_IN_MINUTES*60" | bc`
 
 # Mplayer creates the images because ffmpeg x264 to image sucks
