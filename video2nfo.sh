@@ -126,8 +126,12 @@ done
 # list 1 files per line, replace with '.' with space,
 # sort numeric of second column, replace space with '.'
 # now the video sequence of images are in order from least to greatest
+printf "\n%s" "Fancy tile sequence: Please wait..."
+
 for image in `ls -1 v2nfo*png | tr '\.' ' ' | sort -k 2 -n | tr ' ' '\.'`
 do
+	printf "%s" '.' # don't print \r\n
+
 	# video2nfo watermark
 	convert $image -gravity South -pointsize 12 \
 		-splice 0x16 -annotate +0+2 'video2nfo.sh - Video 2 NFO' nfotmp.png
@@ -148,6 +152,24 @@ done
 # ImageMagick v6 to combine images
 montage v2nfo.*.png -tile 2x -geometry +1+1 VIDEO_2_NFO.png
 
+echo $'\n'
+echo "Adding details with ffprobe..."
+
+# ffprobe from ffmpeg to get the details of the video file
+info="`ffprobe -show_format -print_format json -show_streams "${VIDEO_FILE}" 2> /dev/null |
+grep -v filename |
+tr '"' ' ' |
+tr ':' '-' |
+tr '_' '\.'|
+tr ',' ' '`" # info.end
+
+tmp="v2nfo.tmporary.png"
+
+rm $tmp 3> /dev/null
+convert VIDEO_2_NFO.png label:"${info}" -append $tmp
+mv $tmp VIDEO_2_NFO.png
+
 # Remove the tmp files
 rm v2nfo*.png
 
+echo "COMPLETE!"
