@@ -1,4 +1,5 @@
-#### Video2NFO.sh Turns any video into a screenshot palette 
+[![endorse](http://api.coderwall.com/runexec/endorsecount.png)](http://coderwall.com/runexec) 
+# Video2NFO.sh Turns any video into a screenshot palette 
 <br >
 <img src="https://github.com/runexec/Video2NFO/raw/master/VIDEO_2_NFO.png" />
 
