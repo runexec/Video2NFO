@@ -28,3 +28,6 @@
      ./video2nfo.sh any_video_type.avi
      => Creates VIDEO_2_NFO.png
 
+###### Updates
+Updates can be requested under the issues section.
+
